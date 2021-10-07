@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import { makeStyles } from '@material-ui/core/styles';
 import { deepOrange, deepPurple } from '@material-ui/core/colors';
+import { DirectLine } from 'botframework-directlinejs';
+import ReactWebChat from 'botframework-webchat';
 import './style.css';
 
 const useStyles = makeStyles((theme) => ({
@@ -43,11 +45,12 @@ export default function App(props) {
       </div>
       <div>
         <Avatar
-          alt="Icon"
+          alt="Acon"
           className={classes.orange}
           src="/static/images/avatar/1.jpg"
         />
       </div>
+      <ReactWebChat directLine={this.directLine} userID="YOUR_USER_ID" />
       {frame}
     </main>
   );
