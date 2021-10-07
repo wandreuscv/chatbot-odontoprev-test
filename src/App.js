@@ -1,7 +1,28 @@
 import React, { useState, useEffect } from 'react';
+import Avatar from '@material-ui/core/Avatar';
+import { makeStyles } from '@material-ui/core/styles';
+import { deepOrange, deepPurple } from '@material-ui/core/colors';
 import './style.css';
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    '& > *': {
+      margin: theme.spacing(1),
+    },
+  },
+  orange: {
+    color: theme.palette.getContrastText(deepOrange[500]),
+    backgroundColor: deepOrange[500],
+  },
+  purple: {
+    color: theme.palette.getContrastText(deepPurple[500]),
+    backgroundColor: deepPurple[500],
+  },
+}));
+
 export default function App(props) {
+  const classes = useStyles();
   const [frame, setFrame] = useState();
 
   useEffect(() => {
@@ -19,6 +40,13 @@ export default function App(props) {
     <main>
       <div>
         <button onClick={reloadChat}>Reiniciar chat</button>
+      </div>
+      <div>
+        <Avatar
+          alt="Icon"
+          className={classes.orange}
+          src="/static/images/avatar/1.jpg"
+        />
       </div>
       {frame}
     </main>
